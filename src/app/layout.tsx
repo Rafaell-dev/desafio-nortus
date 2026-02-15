@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} bg-dark antialiased`}
       >
-        <main className="mx-auto max-w-7xl">{children}</main>
+        {children}
       </body>
     </html>
   );
