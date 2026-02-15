@@ -5,6 +5,7 @@ import { KpiEvolutionChart } from '@/src/features/dashboard/components/kpiEvolut
 import { ConversionRateChart } from '@/src/features/dashboard/components/conversionRateChart';
 import { useDashboard } from '@/src/features/dashboard/hooks/useDashboard';
 import { ClientMap } from '@/src/features/dashboard/components/ClientMap';
+import { ActiveClientsList } from '@/src/features/dashboard/components/ActiveClientsList';
 
 export default function DashboardPage() {
   const { data, isLoading, error } = useDashboard();
@@ -46,6 +47,12 @@ export default function DashboardPage() {
             </div>
 
             <ClientMap />
+
+            {data.activeClients && (
+              <div className="col-span-12">
+                <ActiveClientsList data={data.activeClients} />
+              </div>
+            )}
           </div>
         )}
       </div>
