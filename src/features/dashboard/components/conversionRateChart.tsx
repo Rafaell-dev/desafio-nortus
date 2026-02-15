@@ -14,6 +14,9 @@ export function ConversionRateChart({
   labels,
   data,
 }: ConversionRateChartProps) {
+  const chartLabels = labels.slice(-6);
+  const chartData = data.slice(-6);
+
   const options: ApexCharts.ApexOptions = {
     chart: {
       type: 'bar',
@@ -46,10 +49,11 @@ export function ConversionRateChart({
       yaxis: { lines: { show: true } },
     },
     xaxis: {
-      categories: labels,
+      categories: chartLabels,
       labels: { style: { colors: '#6B7A99', fontSize: '12px' } },
       axisBorder: { show: false },
       axisTicks: { show: false },
+      tickPlacement: 'on',
     },
     yaxis: {
       min: 0,
@@ -71,7 +75,7 @@ export function ConversionRateChart({
   const series = [
     {
       name: 'Conversão',
-      data: data,
+      data: chartData,
     },
   ];
 
