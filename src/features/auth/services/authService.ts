@@ -19,6 +19,10 @@ export class AuthService {
   isAuthenticated(): boolean {
     return !!this.getToken();
   }
+
+  logout(): void {
+    localStorage.removeItem('token');
+  }
 }
 
 export const authService = new AuthService(new AuthApi());
