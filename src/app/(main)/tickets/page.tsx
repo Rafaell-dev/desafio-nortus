@@ -3,72 +3,58 @@
 import { TitlePage } from '@/src/features/common/components/titlePage';
 import { TicketList } from '@/src/features/tickets/components/TicketList';
 import { TicketStats } from '@/src/features/tickets/components/TicketStats';
-import { Ticket } from '@/src/features/tickets/types/ticket.types';
+
+import { useTickets } from '@/src/features/tickets/hooks/useTickets';
 
 export default function TicketsPage() {
-  const mockTickets: Ticket[] = [
-    {
-      id: 'TK001',
-      priority: 'Urgente',
-      client: { name: 'Ricardo Leite', email: 'ricardo@email.com' },
-      subject: 'Solicitação de alteração',
-      status: 'Aberto',
-      createdAt: '14/12/2024',
-      assignee: 'Ana Silva',
-    },
-    {
-      id: 'TK002',
-      priority: 'Média',
-      client: { name: 'Maria Silva', email: 'mariasilva@email.com' },
-      subject: 'Dúvida sobre cobertura',
-      status: 'Aberto',
-      createdAt: '13/12/2024',
-      assignee: 'João Costa',
-    },
-    {
-      id: 'TK003',
-      priority: 'Baixa',
-      client: { name: 'João Costa', email: 'costajoao@email.com' },
-      subject: 'Sinistro na residência',
-      status: 'Em andamento',
-      createdAt: '13/12/2024',
-      assignee: 'Carlos Lima',
-    },
-    {
-      id: 'TK004',
-      priority: 'Urgente',
-      client: { name: 'Residencial Premium', email: 'rpremium@email.com' },
-      subject: 'Seguro residencial',
-      status: 'Aberto',
-      createdAt: '12/12/2024',
-      assignee: 'Anderson Freitas',
-    },
-    {
-      id: 'TK005',
-      priority: 'Média',
-      client: { name: 'Familia Total', email: 'familiatotal@email.com' },
-      subject: 'Dúvida sobre combo automóvel e residencial',
-      status: 'Aberto',
-      createdAt: '09/12/2024',
-      assignee: 'Ana Silva',
-    },
-  ];
+  const { tickets, isLoading, error } = useTickets();
 
-  const mockStats = {
-    open: 15,
-    inProgress: 8,
-    solvedToday: 12,
+  const stats = {
+    open: tickets.filter((t) => t.status === 'Aberto').length,
+    inProgress: tickets.filter((t) => t.status === 'Em andamento').length,
+    solvedToday: tickets.filter(
+      (t) => t.status === 'Resolvido' || t.status === 'Fechado'
+    ).length,
     averageTime: '2.5h',
   };
 
+  if (isLoading) {
+    return (
+      <div className="bg-dark flex min-h-screen flex-col text-white">
+        <TitlePage title="Gestão de Tickets" />
+        <div className="mx-auto w-full max-w-7xl px-8 py-8">
+          <div className="animate-pulse space-y-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="bg-dark-surface h-32 rounded-2xl p-6" />
+              ))}
+            </div>
+            <div className="bg-dark-surface h-96 rounded-2xl" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-dark flex min-h-screen flex-col text-white">
+        <TitlePage title="Gestão de Tickets" />
+        <div className="flex flex-1 items-center justify-center">
+          <p className="text-red-500">Erro ao carregar tickets: {error}</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="bg-dark flex min-h-screen max-w-screen flex-col">
+    <div className="bg-dark flex min-h-screen flex-col">
       <TitlePage title="Gestão de Tickets" />
       <div className="mx-auto w-full max-w-7xl px-8 py-8">
         <div className="mb-8">
-          <TicketStats stats={mockStats} />
+          <TicketStats stats={stats} />
         </div>
-        <TicketList tickets={mockTickets} />
+        <TicketList tickets={tickets} />
       </div>
     </div>
   );
