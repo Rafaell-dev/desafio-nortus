@@ -1,0 +1,22 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_8_26)">
+<mask id="mask0_8_26" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+<path d="M16 0H0V16H16V0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_8_26)">
+<path d="M12.6663 10.6666V9.33331C12.6663 7.44771 12.6663 6.50489 12.0805 5.9191C11.4947 5.33331 10.5519 5.33331 8.66634 5.33331H7.33301C5.44739 5.33331 4.50458 5.33331 3.91879 5.9191C3.33301 6.50489 3.33301 7.44771 3.33301 9.33331V10.6666C3.33301 12.5522 3.33301 13.495 3.91879 14.0808C4.50458 14.6666 5.44739 14.6666 7.33301 14.6666H8.66634C10.5519 14.6666 11.4947 14.6666 12.0805 14.0808C12.6663 13.495 12.6663 12.5522 12.6663 10.6666Z" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linejoin="round"/>
+<path d="M12.667 12C13.6098 12 14.0812 12 14.3741 11.7071C14.667 11.4142 14.667 10.9428 14.667 10C14.667 9.0572 14.667 8.5858 14.3741 8.29287C14.0812 8 13.6098 8 12.667 8" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linejoin="round"/>
+<path d="M3.33301 12C2.3902 12 1.91879 12 1.6259 11.7071C1.33301 11.4142 1.33301 10.9428 1.33301 10C1.33301 9.0572 1.33301 8.5858 1.6259 8.29287C1.91879 8 2.3902 8 3.33301 8" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linejoin="round"/>
+<path d="M9 2.33331C9 2.8856 8.55227 3.33331 8 3.33331C7.44773 3.33331 7 2.8856 7 2.33331C7 1.78103 7.44773 1.33331 8 1.33331C8.55227 1.33331 9 1.78103 9 2.33331Z" stroke="white" stroke-opacity="0.5" stroke-width="1.14286"/>
+<path d="M8 3.33331V5.33331" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 8.66669V9.33335" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10 8.66669V9.33335" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.66699 11.6667C6.66699 11.6667 7.11146 12 8.00033 12C8.88919 12 9.33366 11.6667 9.33366 11.6667" stroke="white" stroke-opacity="0.5" stroke-width="1.14286" stroke-linecap="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_8_26">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>
