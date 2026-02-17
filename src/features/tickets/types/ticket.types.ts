@@ -29,3 +29,13 @@ export interface ApiTicket {
   createdAt: string;
   responsible: string;
 }
+
+export interface CreateTicketDTO {
+  ticketId: string;
+  priority: Ticket['priority'];
+  client: string;
+  email: string;
+  subject: string;
+  status: Ticket['status'];
+  responsible: string;
+}
