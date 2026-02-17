@@ -7,24 +7,23 @@ export function useTickets() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchTickets = async () => {
-      try {
-        const data = await ticketService.getTickets();
-        setTickets(data);
-        setError(null);
-      } catch (err) {
-        setError(
-          err instanceof Error ? err.message : 'Erro ao carregar tickets'
-        );
-        console.error(err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const fetchTickets = async () => {
+    setIsLoading(true);
+    try {
+      const data = await ticketService.getTickets();
+      setTickets(data);
+      setError(null);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro ao carregar tickets');
+      console.error(err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchTickets();
   }, []);
 
-  return { tickets, isLoading, error };
+  return { tickets, isLoading, error, refetch: fetchTickets };
 }

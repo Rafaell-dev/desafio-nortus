@@ -42,4 +42,23 @@ export class TicketApi {
       assignee: ticket.responsible,
     }));
   }
+
+  async createTicket(ticket: unknown, token: string): Promise<void> {
+    const response = await fetch(`${API_BASE_URL}/tickets`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(ticket),
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        authService.logout();
+        throw new Error('Sessão expirada. Por favor, faça login novamente.');
+      }
+      throw new Error('Erro ao criar ticket.');
+    }
+  }
 }
