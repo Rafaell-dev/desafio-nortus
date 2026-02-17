@@ -38,7 +38,7 @@ export function Sidebar() {
       href: '/tickets',
       iconPath: '/icons/ticket_icon.svg',
     },
-    { name: 'Chat', href: '#', iconPath: '/icons/chat_icon.svg' },
+    { name: 'Chat', href: '/chat', iconPath: '/icons/chat_icon.svg' },
     { name: 'Perfil', href: '#', iconPath: '/icons/account_icon.svg' },
     { name: 'Calculadora', href: '#', iconPath: '/icons/calculator_icon.svg' },
   ];
