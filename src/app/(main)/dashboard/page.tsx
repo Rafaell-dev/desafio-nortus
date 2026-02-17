@@ -1,6 +1,6 @@
 'use client';
 
-import { TitlePage } from '@/src/features/common/components/titlePage';
+import { TitlePage } from '@/src/features/common/components/TitlePage';
 import { KpiEvolutionChart } from '@/src/features/dashboard/components/kpiEvolutionChart';
 import { ConversionRateChart } from '@/src/features/dashboard/components/conversionRateChart';
 import { useDashboard } from '@/src/features/dashboard/hooks/useDashboard';
