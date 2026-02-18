@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { TitlePage } from '@/src/features/common/components/titlePage';
+import { TitlePage } from '@/src/features/common/components/TitlePage';
 import { TicketList } from '@/src/features/tickets/components/TicketList';
 import { TicketStats } from '@/src/features/tickets/components/TicketStats';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';

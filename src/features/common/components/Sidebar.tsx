@@ -40,7 +40,7 @@ export function Sidebar() {
     },
     { name: 'Chat', href: '/chat', iconPath: '/icons/chat_icon.svg' },
     { name: 'Perfil', href: '#', iconPath: '/icons/account_icon.svg' },
-    { name: 'Calculadora', href: '#', iconPath: '/icons/calculator_icon.svg' },
+    { name: 'Calculadora', href: '/calculator', iconPath: '/icons/calculator_icon.svg' },
   ];
 
   const getInitials = (name: string) => {

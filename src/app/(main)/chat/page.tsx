@@ -1,5 +1,5 @@
 import { ChatWindow } from '@/src/features/chat/components/ChatWindow';
-import { TitlePage } from '@/src/features/common/components/titlePage';
+import { TitlePage } from '@/src/features/common/components/TitlePage';
 
 export default function ChatPage() {
   return (
