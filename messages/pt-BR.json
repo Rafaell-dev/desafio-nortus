@@ -1,0 +1,79 @@
+{
+  "login": {
+    "title": "Login",
+    "subtitle": "Entre com suas credenciais para acessar a sua conta.",
+    "userLabel": "Usuário*",
+    "userPlaceholder": "Insira o seu e-mail, CPF ou passaporte.",
+    "passwordLabel": "Senha*",
+    "togglePassword": "Alternar visibilidade da senha",
+    "rememberMe": "Lembrar meu usuário",
+    "forgotPassword": "Esqueci minha senha",
+    "loginButton": "Entrar",
+    "loggingIn": "Entrando...",
+    "help": "Ajuda"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "tickets": "Tickets",
+    "chat": "Chat",
+    "calculator": "Calculadora"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "kpiEvolution": "Evolução de KPIs",
+    "conversionRate": "Taxa de Conversão",
+    "arpu": "ARPU",
+    "churn": "Churn",
+    "retention": "Retenção",
+    "conversion": "Conversão",
+    "clientMap": "Mapa de Clientes",
+    "allLocations": "Todas as Localizações",
+    "allTypes": "Todos os Tipos",
+    "allStatuses": "Todos os Estados",
+    "name": "Nome",
+    "insuranceType": "Tipo de Seguro",
+    "monthlyValue": "Valor Mensal",
+    "status": "Status",
+    "renewal": "Renovação",
+    "region": "Região",
+    "noClientsFound": "Nenhum cliente encontrado com os filtros selecionados.",
+    "activeClients": "Clientes Ativos",
+    "searchPlaceholder": "Buscar por nome ou e-mail..."
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "Novo Ticket",
+    "status": "Status",
+    "priority": "Prioridade",
+    "subject": "Assunto",
+    "responsible": "Responsável"
+  },
+  "chat": {
+    "title": "Chat com IA",
+    "placeholder": "Digite sua mensagem...",
+    "send": "Enviar"
+  },
+  "calculator": {
+    "title": "Simulador de Planos",
+    "vehicleValue": "Valor do Veículo",
+    "clientAge": "Idade do Cliente",
+    "coverages": "Coberturas",
+    "theft": "Roubo",
+    "collision": "Colisão",
+    "fire": "Incêndio",
+    "nature": "Fenômenos da Natureza",
+    "benefits": "Benefícios Inclusos",
+    "indicators": "Indicadores",
+    "conversion": "Conversão",
+    "roi": "ROI",
+    "perMonth": "Por mês"
+  },
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso"
+  }
+}

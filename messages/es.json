@@ -1,0 +1,79 @@
+{
+  "login": {
+    "title": "Iniciar sesión",
+    "subtitle": "Ingrese sus credenciales para acceder a su cuenta.",
+    "userLabel": "Usuario*",
+    "userPlaceholder": "Ingrese su correo electrónico, CPF o pasaporte.",
+    "passwordLabel": "Contraseña*",
+    "togglePassword": "Alternar visibilidad de contraseña",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "Olvidé mi contraseña",
+    "loginButton": "Entrar",
+    "loggingIn": "Entrando...",
+    "help": "Ayuda"
+  },
+  "sidebar": {
+    "dashboard": "Panel",
+    "tickets": "Tickets",
+    "chat": "Chat",
+    "calculator": "Calculadora"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "kpiEvolution": "Evolución de KPIs",
+    "conversionRate": "Tasa de Conversión",
+    "arpu": "ARPU",
+    "churn": "Churn",
+    "retention": "Retención",
+    "conversion": "Conversión",
+    "clientMap": "Mapa de Clientes",
+    "allLocations": "Todas las Ubicaciones",
+    "allTypes": "Todos los Tipos",
+    "allStatuses": "Todos los Estados",
+    "name": "Nombre",
+    "insuranceType": "Tipo de Seguro",
+    "monthlyValue": "Valor Mensual",
+    "status": "Estado",
+    "renewal": "Renovación",
+    "region": "Región",
+    "noClientsFound": "No se encontraron clientes con los filtros seleccionados.",
+    "activeClients": "Clientes Activos",
+    "searchPlaceholder": "Buscar por nombre o email..."
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "Nuevo Ticket",
+    "status": "Estado",
+    "priority": "Prioridad",
+    "subject": "Asunto",
+    "responsible": "Responsable"
+  },
+  "chat": {
+    "title": "Chat con IA",
+    "placeholder": "Escribe tu mensaje...",
+    "send": "Enviar"
+  },
+  "calculator": {
+    "title": "Simulador de Planes",
+    "vehicleValue": "Valor del Vehículo",
+    "clientAge": "Edad del Cliente",
+    "coverages": "Coberturas",
+    "theft": "Robo",
+    "collision": "Colisión",
+    "fire": "Incendio",
+    "nature": "Fenómenos Naturales",
+    "benefits": "Beneficios Incluidos",
+    "indicators": "Indicadores",
+    "conversion": "Conversión",
+    "roi": "ROI",
+    "perMonth": "Por mes"
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito"
+  }
+}

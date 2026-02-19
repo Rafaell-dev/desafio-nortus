@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { ChevronRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -16,6 +17,7 @@ export function ConversionRateChart({
 }: ConversionRateChartProps) {
   const chartLabels = labels.slice(-6);
   const chartData = data.slice(-6);
+  const t = useTranslations();
 
   const options: ApexCharts.ApexOptions = {
     chart: {
@@ -82,7 +84,9 @@ export function ConversionRateChart({
   return (
     <div className="bg-dark-surface rounded-2xl p-6">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-white">Taxa de conversão</h3>
+        <h3 className="text-lg font-semibold text-white">
+          {t('dashboard.conversionRate')}
+        </h3>
         <button className="text-gray-400 transition-colors hover:text-white">
           <ChevronRight className="h-5 w-5" />
         </button>

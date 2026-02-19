@@ -1,0 +1,79 @@
+{
+  "login": {
+    "title": "Login",
+    "subtitle": "Enter your credentials to access your account.",
+    "userLabel": "User*",
+    "userPlaceholder": "Enter your email, CPF or passport.",
+    "passwordLabel": "Password*",
+    "togglePassword": "Toggle password visibility",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot my password",
+    "loginButton": "Sign in",
+    "loggingIn": "Signing in...",
+    "help": "Help"
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "tickets": "Tickets",
+    "chat": "Chat",
+    "calculator": "Calculator"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "kpiEvolution": "KPI Evolution",
+    "conversionRate": "Conversion Rate",
+    "arpu": "ARPU",
+    "churn": "Churn",
+    "retention": "Retention",
+    "conversion": "Conversion",
+    "clientMap": "Client Map",
+    "allLocations": "All Locations",
+    "allTypes": "All Types",
+    "allStatuses": "All Statuses",
+    "name": "Name",
+    "insuranceType": "Insurance Type",
+    "monthlyValue": "Monthly Value",
+    "status": "Status",
+    "renewal": "Renewal",
+    "region": "Region",
+    "noClientsFound": "No clients found with the selected filters.",
+    "activeClients": "Active Clients",
+    "searchPlaceholder": "Search by name or email..."
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "New Ticket",
+    "status": "Status",
+    "priority": "Priority",
+    "subject": "Subject",
+    "responsible": "Responsible"
+  },
+  "chat": {
+    "title": "AI Chat",
+    "placeholder": "Type your message...",
+    "send": "Send"
+  },
+  "calculator": {
+    "title": "Plan Simulator",
+    "vehicleValue": "Vehicle Value",
+    "clientAge": "Client Age",
+    "coverages": "Coverages",
+    "theft": "Theft",
+    "collision": "Collision",
+    "fire": "Fire",
+    "nature": "Natural Phenomena",
+    "benefits": "Included Benefits",
+    "indicators": "Indicators",
+    "conversion": "Conversion",
+    "roi": "ROI",
+    "perMonth": "Per month"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}

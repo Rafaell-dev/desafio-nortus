@@ -3,17 +3,18 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { KpisTrend } from '../types/dashboard.types';
+import { useTranslations } from 'next-intl';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
-const tabs = ['Retenção', 'Conversão', 'Churn', 'ARPU'] as const;
+const tabs = ['retention', 'conversion', 'churn', 'arpu'] as const;
 type TabType = (typeof tabs)[number];
 
 const tabToTrendKey: Record<TabType, keyof Omit<KpisTrend, 'labels'>> = {
-  Retenção: 'retentionTrend',
-  Conversão: 'conversionTrend',
-  Churn: 'churnTrend',
-  ARPU: 'arpuTrend',
+  retention: 'retentionTrend',
+  conversion: 'conversionTrend',
+  churn: 'churnTrend',
+  arpu: 'arpuTrend',
 };
 
 interface KpiEvolutionChartProps {
@@ -22,15 +23,16 @@ interface KpiEvolutionChartProps {
 }
 
 export function KpiEvolutionChart({ labels, trends }: KpiEvolutionChartProps) {
-  const [activeTab, setActiveTab] = useState<TabType>('ARPU');
+  const [activeTab, setActiveTab] = useState<TabType>('arpu');
+  const t = useTranslations();
 
   const activeTrend = trends[tabToTrendKey[activeTab]];
 
   const formatValue = (val: number): string => {
     switch (activeTab) {
-      case 'ARPU':
+      case 'arpu':
         return `R$ ${(val / 1000).toFixed(1).replace('.', ',')}k`;
-      case 'Churn':
+      case 'churn':
         return `${val.toFixed(1).replace('.', ',')}%`;
       default:
         return `${val}%`;
@@ -112,7 +114,7 @@ export function KpiEvolutionChart({ labels, trends }: KpiEvolutionChartProps) {
     <div className="bg-dark-surface rounded-2xl p-6">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-lg font-semibold text-white">
-          Evolução dos KPI&apos;s
+          {t('dashboard.kpiEvolution')}
         </h3>
         <div className="flex items-center gap-1 rounded-full border border-gray-700/50 p-1">
           {tabs.map((tab) => (
@@ -125,7 +127,7 @@ export function KpiEvolutionChart({ labels, trends }: KpiEvolutionChartProps) {
                   : 'text-gray-400 hover:text-white'
               }`}
             >
-              {tab}
+              {t(`dashboard.${tab}`)}
             </button>
           ))}
         </div>
