@@ -6,12 +6,14 @@ import { TicketList } from '@/src/features/tickets/components/TicketList';
 import { TicketStats } from '@/src/features/tickets/components/TicketStats';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Check, X } from 'lucide-react';
-
+import { useTranslations } from 'next-intl';
 import { useTickets } from '@/src/features/tickets/hooks/useTickets';
 import { NewTicketModal } from '@/src/features/tickets/components/NewTicketModal';
 import { Button } from '@/components/ui/button';
 
 export default function TicketsPage() {
+  const t = useTranslations('tickets');
+  const tCommon = useTranslations('common');
   const { tickets, isLoading, error, refetch } = useTickets();
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
@@ -41,7 +43,7 @@ export default function TicketsPage() {
   if (isLoading) {
     return (
       <div className="bg-dark flex min-h-screen flex-col text-white">
-        <TitlePage title="Gestão de Tickets" />
+        <TitlePage title={t('title')} />
         <div className="mx-auto w-full max-w-7xl px-8 py-8">
           <div className="animate-pulse space-y-8">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -59,9 +61,11 @@ export default function TicketsPage() {
   if (error) {
     return (
       <div className="bg-dark flex min-h-screen flex-col text-white">
-        <TitlePage title="Gestão de Tickets" />
+        <TitlePage title={t('title')} />
         <div className="flex flex-1 items-center justify-center">
-          <p className="text-red-500">Erro ao carregar tickets: {error}</p>
+          <p className="text-red-500">
+            {tCommon('error')}: {error}
+          </p>
         </div>
       </div>
     );
@@ -70,11 +74,11 @@ export default function TicketsPage() {
   return (
     <div className="bg-dark relative flex min-h-screen flex-col">
       <TitlePage
-        title="Gestão de Tickets"
+        title={t('title')}
         action={
           <NewTicketModal onSuccess={handleSuccess}>
             <Button className="bg-blue gap-2 rounded-full px-6 text-white hover:bg-blue-700">
-              <span className="text-xl">+</span> Novo Ticket
+              <span className="text-xl">+</span> {t('newTicket')}
             </Button>
           </NewTicketModal>
         }
@@ -94,10 +98,10 @@ export default function TicketsPage() {
             </div>
             <div className="ml-8">
               <AlertTitle className="text-base font-bold">
-                Ticket criado com sucesso!
+                {t('successTitle')}
               </AlertTitle>
               <AlertDescription className="text-white/90">
-                O ticket foi criado e já está na sua lista.
+                {t('successDescription')}
               </AlertDescription>
             </div>
             <button

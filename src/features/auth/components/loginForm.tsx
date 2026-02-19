@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Eye, EyeOff } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useLogin } from '../hooks/useLogin';
 import { LoginFormValues, loginSchema } from '../schemas/loginSchema';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 
 export function LoginForm() {
+  const t = useTranslations('login');
   const [showPassword, setShowPassword] = React.useState(false);
   const { login, isLoading, error } = useLogin();
 
@@ -41,11 +43,11 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="space-y-2">
-        <label className="text-sm text-gray-300">Usuário*</label>
+        <label className="text-sm text-gray-300">{t('userLabel')}</label>
         <Input
           {...register('email')}
           type="text"
-          placeholder="Insira o seu e-mail, CPF ou passaporte."
+          placeholder={t('userPlaceholder')}
           className="focus-visible:ring-blue h-12 rounded-xl border-gray-600/50 bg-transparent text-white placeholder:text-gray-500"
         />
         {errors.email && (
@@ -54,7 +56,7 @@ export function LoginForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="text-sm text-gray-300">Senha*</label>
+        <label className="text-sm text-gray-300">{t('passwordLabel')}</label>
         <div className="relative">
           <Input
             {...register('password')}
@@ -73,7 +75,7 @@ export function LoginForm() {
             ) : (
               <Eye className="h-5 w-5" />
             )}
-            <span className="sr-only">Alternar visibilidade da senha</span>
+            <span className="sr-only">{t('togglePassword')}</span>
           </Button>
         </div>
         {errors.password && (
@@ -95,7 +97,7 @@ export function LoginForm() {
             htmlFor="rememberMe"
             className="cursor-pointer text-sm font-normal text-gray-300"
           >
-            Lembrar meu usuário
+            {t('rememberMe')}
           </label>
         </div>
         <Button
@@ -103,7 +105,7 @@ export function LoginForm() {
           className="text-blue h-auto px-0 text-sm font-normal"
           type="button"
         >
-          Esqueci minha senha
+          {t('forgotPassword')}
         </Button>
       </div>
 
@@ -118,7 +120,7 @@ export function LoginForm() {
         disabled={isLoading}
         className="text-md bg-blue hover:bg-blue/90 h-12 w-full rounded-xl font-medium text-white disabled:opacity-60"
       >
-        {isLoading ? 'Entrando...' : 'Entrar'}
+        {isLoading ? t('loggingIn') : t('loginButton')}
       </Button>
     </form>
   );

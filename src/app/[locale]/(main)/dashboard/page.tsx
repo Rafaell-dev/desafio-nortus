@@ -6,16 +6,18 @@ import { ConversionRateChart } from '@/src/features/dashboard/components/convers
 import { useDashboard } from '@/src/features/dashboard/hooks/useDashboard';
 import { ClientMap } from '@/src/features/dashboard/components/ClientMap';
 import { ActiveClientsList } from '@/src/features/dashboard/components/ActiveClientsList';
+import { useTranslations } from 'next-intl';
 
 export default function DashboardPage() {
+  const t = useTranslations();
   const { data, isLoading, error } = useDashboard();
 
   return (
     <div className="bg-dark flex min-h-screen max-w-screen flex-col">
-      <TitlePage title="Dashboard" />
+      <TitlePage title={t('dashboard.title')} />
       <div className="mx-auto w-full max-w-7xl px-8 py-8">
         {isLoading && (
-          <p className="text-center text-gray-400">Carregando...</p>
+          <p className="text-center text-gray-400">{t('common.loading')}</p>
         )}
 
         {error && (

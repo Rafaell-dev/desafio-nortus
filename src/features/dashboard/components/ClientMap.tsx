@@ -13,6 +13,7 @@ import { Location } from '../types/location.types';
 import { ChevronDown } from 'lucide-react';
 import { useMapLocations } from '../hooks/useMapLocations';
 import { MapProvider, useMap } from '@/src/features/common/contexts/MapContext';
+import { useTranslations } from 'next-intl';
 
 function MapMarkers({ locations }: { locations: Location[] }) {
   const { map } = useMap();
@@ -142,20 +143,21 @@ function MapMarkers({ locations }: { locations: Location[] }) {
 
 export function ClientMap() {
   const { locations, isLoading, error } = useMapLocations();
+  const t = useTranslations();
 
   return (
     <div className="bg-dark-surface relative w-full overflow-hidden rounded-2xl p-1">
       {/* Filters Header */}
       <div className="pointer-events-none absolute top-4 left-4 z-10 flex w-[calc(100%-2rem)] justify-between gap-4">
         <h3 className="pointer-events-auto text-lg font-semibold text-white">
-          Mapa de clientes por região
+          {t('dashboard.clientMap')}
         </h3>
         <div className="pointer-events-auto flex gap-2">
           <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-4 py-1.5 text-xs text-gray-300 backdrop-blur-sm transition-colors hover:text-white">
-            Todos os locais <ChevronDown size={14} />
+            {t('dashboard.allLocations')} <ChevronDown size={14} />
           </button>
           <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-4 py-1.5 text-xs text-gray-300 backdrop-blur-sm transition-colors hover:text-white">
-            Todos os tipos <ChevronDown size={14} />
+            {t('dashboard.allTypes')} <ChevronDown size={14} />
           </button>
         </div>
       </div>
@@ -167,7 +169,7 @@ export function ClientMap() {
       {/* Loading State */}
       {isLoading && (
         <div className="bg-dark-surface/50 absolute inset-0 z-20 flex items-center justify-center backdrop-blur-sm">
-          <p className="text-white">Carregando mapa...</p>
+          <p className="text-white">{t('dashboard.loadingMap')}</p>
         </div>
       )}
 

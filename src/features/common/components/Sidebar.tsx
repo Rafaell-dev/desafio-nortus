@@ -15,10 +15,12 @@ import {
 import { useUser } from '@/src/features/users/hooks/useUser';
 import { authService } from '../../auth/services/authService';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export function Sidebar() {
   const pathname = usePathname();
   const router = useRouter();
+  const t = useTranslations('sidebar');
   const [isExpanded, setIsExpanded] = useState(false);
   const { user, isLoading } = useUser();
 
@@ -29,18 +31,22 @@ export function Sidebar() {
 
   const navigation = [
     {
-      name: 'Dashboard',
+      name: t('dashboard'),
       href: '/dashboard',
       iconPath: '/icons/dashboard_icon.svg',
     },
     {
-      name: 'Gestão de Tickets',
+      name: t('tickets'),
       href: '/tickets',
       iconPath: '/icons/ticket_icon.svg',
     },
-    { name: 'Chat', href: '/chat', iconPath: '/icons/chat_icon.svg' },
-    { name: 'Perfil', href: '#', iconPath: '/icons/account_icon.svg' },
-    { name: 'Calculadora', href: '/calculator', iconPath: '/icons/calculator_icon.svg' },
+    { name: t('chat'), href: '/chat', iconPath: '/icons/chat_icon.svg' },
+    { name: t('profile'), href: '#', iconPath: '/icons/account_icon.svg' },
+    {
+      name: t('calculator'),
+      href: '/calculator',
+      iconPath: '/icons/calculator_icon.svg',
+    },
   ];
 
   const getInitials = (name: string) => {
@@ -80,7 +86,9 @@ export function Sidebar() {
       <nav className="flex-1 space-y-2 p-4">
         <TooltipProvider>
           {navigation.map((item) => {
-            const isActive = pathname === item.href;
+            // pathname may include locale prefix (e.g. /en/dashboard)
+            const isActive =
+              pathname === item.href || pathname.endsWith(item.href);
             return (
               <Tooltip key={item.name} delayDuration={0}>
                 <TooltipTrigger asChild>
