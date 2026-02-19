@@ -16,7 +16,8 @@
     "dashboard": "Panel",
     "tickets": "Tickets",
     "chat": "Chat",
-    "calculator": "Calculadora"
+    "calculator": "Calculadora",
+    "profile": "Perfil"
   },
   "dashboard": {
     "title": "Panel",

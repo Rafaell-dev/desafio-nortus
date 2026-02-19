@@ -16,7 +16,8 @@
     "dashboard": "Dashboard",
     "tickets": "Tickets",
     "chat": "Chat",
-    "calculator": "Calculadora"
+    "calculator": "Calculadora",
+    "profile": "Perfil"
   },
   "dashboard": {
     "title": "Dashboard",
