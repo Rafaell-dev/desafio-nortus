@@ -98,10 +98,10 @@ export default function TicketsPage() {
             </div>
             <div className="ml-8">
               <AlertTitle className="text-base font-bold">
-                Ticket criado com sucesso!
+                {t('successTitle')}
               </AlertTitle>
               <AlertDescription className="text-white/90">
-                O ticket foi criado e já está na sua lista.
+                {t('successDescription')}
               </AlertDescription>
             </div>
             <button

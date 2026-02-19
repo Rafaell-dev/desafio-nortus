@@ -3,12 +3,14 @@ import { Ticket } from '../types/ticket.types';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useTicketFilters } from '../hooks/useTicketFilters';
+import { useTranslations } from 'next-intl';
 
 interface TicketListProps {
   tickets: Ticket[];
 }
 
 export function TicketList({ tickets }: TicketListProps) {
+  const t = useTranslations('tickets.list');
   const {
     searchTerm,
     setSearchTerm,
@@ -61,7 +63,7 @@ export function TicketList({ tickets }: TicketListProps) {
   return (
     <div className="bg-dark-surface flex min-h-[600px] flex-col justify-between rounded-2xl p-6 text-white shadow-sm">
       <div>
-        <h2 className="mb-6 text-lg font-bold">Lista de Tickets</h2>
+        <h2 className="mb-6 text-lg font-bold">{t('title')}</h2>
 
         {/* Controls */}
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
@@ -69,7 +71,7 @@ export function TicketList({ tickets }: TicketListProps) {
             <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <input
               type="text"
-              placeholder="Buscar por ID, cliente ou assunto..."
+              placeholder={t('searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="bg-dark focus:border-active w-full rounded-full border border-gray-700/50 py-2.5 pr-4 pl-10 text-sm text-gray-200 placeholder-gray-500 focus:outline-none"
@@ -84,11 +86,11 @@ export function TicketList({ tickets }: TicketListProps) {
                 onChange={(e) => setStatusFilter(e.target.value)}
                 className="bg-dark focus:border-active appearance-none rounded-full border border-gray-700/50 py-2 pr-8 pl-4 text-xs text-gray-300 focus:outline-none"
               >
-                <option value="Todos os status">Todos os status</option>
-                <option value="Aberto">Aberto</option>
-                <option value="Em andamento">Em andamento</option>
-                <option value="Resolvido">Resolvido</option>
-                <option value="Fechado">Fechado</option>
+                <option value="Todos os status">{t('allStatuses')}</option>
+                <option value="Aberto">{t('statusOpen')}</option>
+                <option value="Em andamento">{t('statusInProgress')}</option>
+                <option value="Resolvido">{t('statusSolved')}</option>
+                <option value="Fechado">{t('statusClosed')}</option>
               </select>
               <ChevronDown className="pointer-events-none absolute top-1/2 right-2.5 h-3.5 w-3.5 -translate-y-1/2 text-gray-400" />
             </div>
@@ -101,12 +103,12 @@ export function TicketList({ tickets }: TicketListProps) {
                 className="bg-dark focus:border-active appearance-none rounded-full border border-gray-700/50 py-2 pr-8 pl-4 text-xs text-gray-300 focus:outline-none"
               >
                 <option value="Todas as prioridades">
-                  Todas as prioridades
+                  {t('allPriorities')}
                 </option>
-                <option value="Urgente">Urgente</option>
-                <option value="Alta">Alta</option>
-                <option value="Média">Média</option>
-                <option value="Baixa">Baixa</option>
+                <option value="Urgente">{t('priorityUrgent')}</option>
+                <option value="Alta">{t('priorityHigh')}</option>
+                <option value="Média">{t('priorityMedium')}</option>
+                <option value="Baixa">{t('priorityLow')}</option>
               </select>
               <ChevronDown className="pointer-events-none absolute top-1/2 right-2.5 h-3.5 w-3.5 -translate-y-1/2 text-gray-400" />
             </div>
@@ -119,7 +121,7 @@ export function TicketList({ tickets }: TicketListProps) {
                 className="bg-dark focus:border-active appearance-none rounded-full border border-gray-700/50 py-2 pr-8 pl-4 text-xs text-gray-300 focus:outline-none"
               >
                 <option value="Todos os responsáveis">
-                  Todos os responsáveis
+                  {t('allAssignees')}
                 </option>
                 {uniqueAssignees.map((assignee) => (
                   <option key={assignee} value={assignee}>
@@ -137,14 +139,16 @@ export function TicketList({ tickets }: TicketListProps) {
           <table className="w-full min-w-[1000px] border-collapse text-left">
             <thead>
               <tr className="border-b border-gray-800 text-xs text-gray-400">
-                <th className="pb-4 pl-4 font-medium">ID</th>
-                <th className="pb-4 font-medium">Prioridade</th>
-                <th className="pb-4 font-medium">Cliente</th>
-                <th className="pb-4 font-medium">Assunto</th>
-                <th className="pb-4 font-medium">Status</th>
-                <th className="pb-4 font-medium">Criado em</th>
-                <th className="pb-4 font-medium">Responsável</th>
-                <th className="pb-4 text-left font-medium">Ações</th>
+                <th className="pb-4 pl-4 font-medium">{t('colId')}</th>
+                <th className="pb-4 font-medium">{t('colPriority')}</th>
+                <th className="pb-4 font-medium">{t('colClient')}</th>
+                <th className="pb-4 font-medium">{t('colSubject')}</th>
+                <th className="pb-4 font-medium">{t('colStatus')}</th>
+                <th className="pb-4 font-medium">{t('colCreatedAt')}</th>
+                <th className="pb-4 font-medium">{t('colResponsible')}</th>
+                <th className="pb-4 text-left font-medium">
+                  {t('colActions')}
+                </th>
               </tr>
             </thead>
             <tbody className="text-sm">
@@ -191,7 +195,7 @@ export function TicketList({ tickets }: TicketListProps) {
                         className="flex items-center gap-2"
                         variant="ghost"
                       >
-                        <p>Editar</p>
+                        <p>{t('edit')}</p>
                         <Image
                           src="/icons/edit_icon.svg"
                           alt=""
@@ -203,7 +207,7 @@ export function TicketList({ tickets }: TicketListProps) {
                         className="flex items-center gap-1"
                         variant="ghost"
                       >
-                        <p>Ver</p>
+                        <p>{t('view')}</p>
                         <Image
                           src="/icons/arrow_icon.svg"
                           alt=""
@@ -220,7 +224,7 @@ export function TicketList({ tickets }: TicketListProps) {
 
           {filteredTickets.length === 0 && (
             <div className="py-12 text-center text-gray-500">
-              Nenhum ticket encontrado.
+              {t('noTickets')}
             </div>
           )}
         </div>
@@ -230,7 +234,7 @@ export function TicketList({ tickets }: TicketListProps) {
       {filteredTickets.length > 0 && (
         <div className="mt-6 flex items-center justify-between border-t border-gray-800 pt-4">
           <p className="text-xs text-gray-400">
-            Mostrando{' '}
+            {t('showing')}{' '}
             <span className="font-bold text-white">
               {(currentPage - 1) * itemsPerPage + 1}
             </span>{' '}
@@ -238,7 +242,7 @@ export function TicketList({ tickets }: TicketListProps) {
             <span className="font-bold text-white">
               {Math.min(currentPage * itemsPerPage, filteredTickets.length)}
             </span>{' '}
-            de{' '}
+            {t('of')}{' '}
             <span className="font-bold text-white">
               {filteredTickets.length}
             </span>
@@ -250,14 +254,14 @@ export function TicketList({ tickets }: TicketListProps) {
               disabled={currentPage === 1}
               className="rounded-lg border border-gray-700 bg-transparent px-3 py-1.5 text-xs text-gray-300 hover:bg-white/5 disabled:opacity-50"
             >
-              Anterior
+              {t('previous')}
             </button>
             <button
               onClick={goToNextPage}
               disabled={currentPage === totalPages}
               className="rounded-lg border border-gray-700 bg-transparent px-3 py-1.5 text-xs text-gray-300 hover:bg-white/5 disabled:opacity-50"
             >
-              Próximo
+              {t('next')}
             </button>
           </div>
         </div>
