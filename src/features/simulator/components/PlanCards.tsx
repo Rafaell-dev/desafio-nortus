@@ -1,7 +1,9 @@
 import { useSimulatorStore } from '../hooks/useSimulatorStore';
 import { simulatorService } from '../services/simulatorService';
+import { useTranslations } from 'next-intl';
 
 export function PlanCards() {
+  const t = useTranslations('calculator');
   const { data, config, selectedPlan, setSelectedPlan } = useSimulatorStore();
 
   if (!data) return null;
@@ -10,7 +12,10 @@ export function PlanCards() {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {data.plansIndicators.map((plan) => {
         const isSelected = selectedPlan === plan.name;
-        const totalValue = simulatorService.calculatePlanPrice(plan.value, config);
+        const totalValue = simulatorService.calculatePlanPrice(
+          plan.value,
+          config
+        );
 
         return (
           <div
@@ -24,7 +29,7 @@ export function PlanCards() {
           >
             {plan.name === 'Premium' && (
               <span className="bg-active text-dark absolute top-4 right-4 rounded-full px-3 py-1 text-xs">
-                Recomendado
+                {t('recommended')}
               </span>
             )}
 
@@ -38,7 +43,7 @@ export function PlanCards() {
             </div>
 
             <div className="mt-8">
-              <span className="text-sm text-gray-500">Por mês</span>
+              <span className="text-sm text-gray-500">{t('perMonth')}</span>
             </div>
           </div>
         );

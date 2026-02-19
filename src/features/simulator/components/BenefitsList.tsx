@@ -1,15 +1,15 @@
 import { useSimulatorStore } from '../hooks/useSimulatorStore';
+import { useTranslations } from 'next-intl';
 
 export function BenefitsList() {
+  const t = useTranslations('calculator');
   const { data } = useSimulatorStore();
 
   if (!data) return null;
 
   return (
     <div className="bg-dark-surface rounded-2xl p-6">
-      <h3 className="mb-4 text-base font-bold text-white">
-        Benefícios Inclusos
-      </h3>
+      <h3 className="mb-4 text-base font-bold text-white">{t('benefits')}</h3>
       <div className="flex flex-wrap gap-2">
         {data.includedBenefits.map((benefit, index) => (
           <div

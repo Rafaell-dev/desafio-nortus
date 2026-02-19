@@ -2,8 +2,10 @@ import { useSimulatorStore } from '../hooks/useSimulatorStore';
 import { COVERAGE_PRICES } from '../types/simulator.types';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
+import { useTranslations } from 'next-intl';
 
 export function ConfigurationPanel() {
+  const t = useTranslations('calculator');
   const { config, setConfig, toggleCoverage } = useSimulatorStore();
 
   const handleVehicleValueChange = (value: number[]) => {
@@ -19,7 +21,9 @@ export function ConfigurationPanel() {
       <div>
         <div className="mb-4 flex items-center justify-between">
           <label className="text-sm font-medium text-white">
-            Valor do veículo: R$ {config.vehicleValue.toLocaleString('pt-BR')}
+            {t('vehicleValue', {
+              value: config.vehicleValue.toLocaleString('pt-BR'),
+            })}
           </label>
         </div>
         <Slider
@@ -39,7 +43,7 @@ export function ConfigurationPanel() {
       <div>
         <div className="mb-4 flex items-center justify-between">
           <label className="text-sm font-medium text-white">
-            Idade do Cliente: {config.clientAge} anos
+            {t('clientAge', { age: config.clientAge })}
           </label>
         </div>
         <Slider
@@ -51,14 +55,14 @@ export function ConfigurationPanel() {
           className="py-4"
         />
         <div className="flex justify-between text-sm text-white">
-          <span>18 anos</span>
-          <span>90 anos</span>
+          <span>18 {t('years')}</span>
+          <span>90 {t('years')}</span>
         </div>
       </div>
 
       <div>
         <h3 className="mb-4 text-sm font-medium text-white">
-          Coberturas Adicionais
+          {t('additionalCoverages')}
         </h3>
         <div className="space-y-3">
           <div className="flex items-center justify-between">
@@ -72,7 +76,7 @@ export function ConfigurationPanel() {
                 htmlFor="theft"
                 className="text-sm leading-none font-medium text-gray-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Cobertura contra roubo e furto
+                {t('theft')}
               </label>
             </div>
             <span className="text-sm font-bold text-white">
@@ -91,7 +95,7 @@ export function ConfigurationPanel() {
                 htmlFor="collision"
                 className="text-sm leading-none font-medium text-gray-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Danos por colisão
+                {t('collision')}
               </label>
             </div>
             <span className="text-sm font-bold text-white">
@@ -110,7 +114,7 @@ export function ConfigurationPanel() {
                 htmlFor="fire"
                 className="text-sm leading-none font-medium text-gray-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Cobertura contra incêndio
+                {t('fire')}
               </label>
             </div>
             <span className="text-sm font-bold text-white">
@@ -129,7 +133,7 @@ export function ConfigurationPanel() {
                 htmlFor="nature"
                 className="text-sm leading-none font-medium text-gray-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Fenômenos naturais (granizo, enchente)
+                {t('nature')}
               </label>
             </div>
             <span className="text-sm font-bold text-white">

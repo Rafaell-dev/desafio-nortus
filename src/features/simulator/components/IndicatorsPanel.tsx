@@ -1,13 +1,15 @@
 import { useSimulatorStore } from '../hooks/useSimulatorStore';
+import { useTranslations } from 'next-intl';
 
 export function IndicatorsPanel() {
+  const t = useTranslations('calculator');
   const { data, selectedPlan } = useSimulatorStore();
 
   if (!data) return null;
 
   return (
     <div className="bg-dark-surface rounded-3xl border border-gray-800 p-6">
-      <h3 className="mb-6 text-lg font-bold text-white">Indicadores</h3>
+      <h3 className="mb-6 text-lg font-bold text-white">{t('indicators')}</h3>
       <div className="space-y-4">
         {data.plansIndicators.map((plan) => {
           const isSelected = selectedPlan === plan.name;
@@ -30,7 +32,7 @@ export function IndicatorsPanel() {
                   <span
                     className={`${isSelected ? 'text-white' : 'text-gray-400'} text-xs`}
                   >
-                    Conversão:{' '}
+                    {t('conversion')}:{' '}
                     <span className="text-green-500">{plan.conversion}%</span>
                   </span>
                   <span

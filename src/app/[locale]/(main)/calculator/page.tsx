@@ -35,7 +35,7 @@ export default function CalculatorPage() {
           <div className="space-y-8 lg:col-span-2">
             <div className="bg-dark-surface rounded-3xl border border-gray-800 p-8">
               <h2 className="mb-6 text-xl font-bold text-white">
-                Planos personalizados
+                {t('customPlans')}
               </h2>
 
               <PlanCards />
