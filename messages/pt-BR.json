@@ -112,7 +112,8 @@
   "chat": {
     "title": "Chat com IA",
     "placeholder": "Digite sua mensagem...",
-    "send": "Enviar"
+    "send": "Enviar",
+    "today": "HOJE"
   },
   "calculator": {
     "title": "Simulador de Planos",
