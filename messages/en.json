@@ -38,7 +38,10 @@
     "region": "Region",
     "noClientsFound": "No clients found with the selected filters.",
     "activeClients": "Active Clients",
-    "searchPlaceholder": "Search by name or email..."
+    "searchPlaceholder": "Search by name or email...",
+    "loadingMap": "Loading map...",
+    "conversionSeriesName": "Conversion",
+    "conversionClients": "{count} clients"
   },
   "tickets": {
     "title": "Tickets",

@@ -38,7 +38,10 @@
     "region": "Región",
     "noClientsFound": "No se encontraron clientes con los filtros seleccionados.",
     "activeClients": "Clientes Activos",
-    "searchPlaceholder": "Buscar por nombre o email..."
+    "searchPlaceholder": "Buscar por nombre o email...",
+    "loadingMap": "Cargando mapa...",
+    "conversionSeriesName": "Conversión",
+    "conversionClients": "{count} clientes"
   },
   "tickets": {
     "title": "Tickets",

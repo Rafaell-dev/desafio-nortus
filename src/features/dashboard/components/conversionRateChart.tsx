@@ -69,14 +69,15 @@ export function ConversionRateChart({
     tooltip: {
       theme: 'dark',
       y: {
-        formatter: (val: number) => `${val} clientes`,
+        formatter: (val: number) =>
+          t('dashboard.conversionClients', { count: val }),
       },
     },
   };
 
   const series = [
     {
-      name: 'Conversão',
+      name: t('dashboard.conversionSeriesName'),
       data: chartData,
     },
   ];

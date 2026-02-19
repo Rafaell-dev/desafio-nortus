@@ -16,7 +16,6 @@ import { MapProvider, useMap } from '@/src/features/common/contexts/MapContext';
 import { useTranslations } from 'next-intl';
 
 function MapMarkers({ locations }: { locations: Location[] }) {
-  const t = useTranslations();
   const { map } = useMap();
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
@@ -170,7 +169,7 @@ export function ClientMap() {
       {/* Loading State */}
       {isLoading && (
         <div className="bg-dark-surface/50 absolute inset-0 z-20 flex items-center justify-center backdrop-blur-sm">
-          <p className="text-white">Carregando mapa...</p>
+          <p className="text-white">{t('dashboard.loadingMap')}</p>
         </div>
       )}
 
