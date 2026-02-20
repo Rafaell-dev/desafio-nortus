@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/tooltip';
 import { useUser } from '@/src/features/users/hooks/useUser';
 import { authService } from '../../auth/services/authService';
+import { logoutAction } from '../../auth/logoutAction';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
@@ -24,8 +25,9 @@ export function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
   const { user, isLoading } = useUser();
 
-  const handleLogout = () => {
-    authService.logout();
+  const handleLogout = async () => {
+    await logoutAction();
+    authService.clearLocalData();
     router.push('/');
   };
 

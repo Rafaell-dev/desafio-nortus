@@ -1,30 +1,18 @@
-import { TicketApi } from './ticketApi';
 import { Ticket } from '../types/ticket.types';
-import { authService } from '../../auth/services/authService';
 
 export class TicketService {
-  constructor(private api: TicketApi) {}
-
   async getTickets(): Promise<Ticket[]> {
-    const token = authService.getToken();
-
-    if (!token) {
-      throw new Error('Token não encontrado.');
+    const response = await fetch('/api/tickets');
+    if (!response.ok) {
+      throw new Error('Erro ao buscar tickets.');
     }
-
-    return this.api.getTickets(token);
+    return response.json();
   }
 
   async createTicket(
     ticketData: Omit<Ticket, 'id' | 'createdAt'>
   ): Promise<void> {
-    const token = authService.getToken();
-
-    if (!token) {
-      throw new Error('Token não encontrado.');
-    }
-
-    const newTicket = {
+    const body = {
       ticketId: crypto.randomUUID(),
       priority: ticketData.priority,
       client: ticketData.client.name,
@@ -34,8 +22,16 @@ export class TicketService {
       responsible: ticketData.assignee,
     };
 
-    return this.api.createTicket(newTicket, token);
+    const response = await fetch('/api/tickets', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    if (!response.ok) {
+      throw new Error('Erro ao criar ticket.');
+    }
   }
 }
 
-export const ticketService = new TicketService(new TicketApi());
+export const ticketService = new TicketService();
