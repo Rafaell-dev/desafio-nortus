@@ -29,6 +29,7 @@ export class TicketApi {
 
     return rawTickets.map((ticket: ApiTicket) => ({
       id: ticket.id,
+      ticketId: ticket.ticketId || ticket.id,
       priority: ticket.priority,
       client: {
         name: ticket.client,
@@ -81,6 +82,7 @@ export class TicketApi {
 
     return {
       id: ticket.id,
+      ticketId: ticket.ticketId || ticket.id,
       priority: ticket.priority,
       client: {
         name: ticket.client,
