@@ -1,14 +1,23 @@
 import { useState, useEffect } from 'react';
-import { userService } from '../services/userService';
+import { getUserByEmailAction } from '../../auth/actions';
 import { User } from '../types/user.types';
 import { authService } from '../../auth/services/authService';
 
 export function useUser() {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<User | null>(() => {
+    return authService.loadUserData();
+  });
+  const [isLoading, setIsLoading] = useState(!authService.loadUserData());
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const cached = authService.loadUserData();
+    if (cached) {
+      setUser(cached);
+      setIsLoading(false);
+      return;
+    }
+
     const fetchUser = async () => {
       try {
         const email = authService.getUserEmail();
@@ -18,9 +27,16 @@ export function useUser() {
           return;
         }
 
-        const userData = await userService.getUserByEmail(email);
-        setUser(userData);
-        setError(null);
+        const result = await getUserByEmailAction(email);
+
+        if (result.success && result.user) {
+          authService.saveUserData(result.user);
+          setUser(result.user);
+          setError(null);
+        } else {
+          setError(result.error ?? 'Erro ao carregar usuário');
+          setUser(null);
+        }
       } catch (err) {
         setError(
           err instanceof Error ? err.message : 'Erro ao carregar usuário'

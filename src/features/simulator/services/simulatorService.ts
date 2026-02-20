@@ -1,18 +1,21 @@
-import { SimulatorApi } from './simulatorApi';
-import { COVERAGE_PRICES, SimulatorConfig } from '../types/simulator.types';
-import { authService } from '../../auth/services/authService';
+import {
+  COVERAGE_PRICES,
+  SimulatorConfig,
+  SimulatorResponse,
+} from '../types/simulator.types';
 
 export class SimulatorService {
-  constructor(private api: SimulatorApi) {}
+  async getPlans(): Promise<SimulatorResponse> {
+    const response = await fetch('/api/simulator');
 
-  async getPlans() {
-    const token = authService.getToken();
-
-    if (!token) {
-      throw new Error('Token não encontrado.');
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Sessão expirada. Por favor, faça login novamente.');
+      }
+      throw new Error('Erro ao buscar dados do simulador.');
     }
 
-    return this.api.getPlans(token);
+    return response.json();
   }
 
   calculatePlanPrice(baseValue: number, config: SimulatorConfig): number {
@@ -57,4 +60,4 @@ export class SimulatorService {
   }
 }
 
-export const simulatorService = new SimulatorService(new SimulatorApi());
+export const simulatorService = new SimulatorService();

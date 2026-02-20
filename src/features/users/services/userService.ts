@@ -1,15 +1,16 @@
 import { UserApi } from './userApi';
 import { User } from '../types/user.types';
-import { authService } from '../../auth/services/authService';
+import { cookies } from 'next/headers';
 
 export class UserService {
   constructor(private api: UserApi) {}
 
   async getUserByEmail(email: string): Promise<User> {
-    const token = authService.getToken();
+    const cookieStore = await cookies();
+    const token = cookieStore.get('auth_token')?.value;
 
     if (!token) {
-      throw new Error('Token not found');
+      throw new Error('Token não encontrado. Faça login novamente.');
     }
     return this.api.getUserByEmail(email, token);
   }

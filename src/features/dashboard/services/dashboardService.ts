@@ -1,18 +1,18 @@
-import { authService } from '@/src/features/auth/services/authService';
 import { DashboardResponse } from '../types/dashboard.types';
-import { DashboardApi } from './dashboardApi';
 
 export class DashboardService {
-  constructor(private api: DashboardApi) {}
-
   async getDashboard(): Promise<DashboardResponse> {
-    const token = authService.getToken();
-    if (!token) {
-      throw new Error('No token found');
+    const response = await fetch('/api/dashboard');
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Sessão expirada. Por favor, faça login novamente.');
+      }
+      throw new Error('Erro ao buscar dados do dashboard.');
     }
 
-    return this.api.getDashboard(token);
+    return response.json();
   }
 }
 
-export const dashboardService = new DashboardService(new DashboardApi());
+export const dashboardService = new DashboardService();

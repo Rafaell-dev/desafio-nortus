@@ -1,18 +1,18 @@
-import { authService } from '@/src/features/auth/services/authService';
-import { MapApi } from './mapApi';
 import { LocationResponse } from '../types/location.types';
 
 export class MapService {
-  constructor(private api: MapApi) {}
-
   async getLocations(): Promise<LocationResponse> {
-    const token = authService.getToken();
-    if (!token) {
-      throw new Error('No token found');
+    const response = await fetch('/api/map');
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Sessão expirada. Por favor, faça login novamente.');
+      }
+      throw new Error('Erro ao buscar localizações.');
     }
 
-    return this.api.getLocations(token);
+    return response.json();
   }
 }
 
-export const mapService = new MapService(new MapApi());
+export const mapService = new MapService();
