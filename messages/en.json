@@ -120,6 +120,19 @@
       "updating": "Updating...",
       "successTitle": "Ticket updated successfully!",
       "successDescription": "The changes have been saved."
+    },
+    "viewModal": {
+      "title": "Ticket Details",
+      "loadingTicket": "Loading ticket data...",
+      "loadError": "Error loading ticket",
+      "id": "Ticket ID",
+      "clientName": "Client Name",
+      "email": "Email",
+      "priority": "Priority",
+      "status": "Status",
+      "responsible": "Responsible",
+      "subject": "Subject",
+      "createdAt": "Created At"
     }
   },
   "chat": {

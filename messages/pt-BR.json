@@ -120,6 +120,19 @@
       "updating": "Atualizando...",
       "successTitle": "Ticket atualizado com sucesso!",
       "successDescription": "As alterações foram salvas."
+    },
+    "viewModal": {
+      "title": "Detalhes do Ticket",
+      "loadingTicket": "Carregando dados do ticket...",
+      "loadError": "Erro ao carregar ticket",
+      "id": "ID do Ticket",
+      "clientName": "Nome do Cliente",
+      "email": "Email",
+      "priority": "Prioridade",
+      "status": "Status",
+      "responsible": "Responsável",
+      "subject": "Assunto",
+      "createdAt": "Criado em"
     }
   },
   "chat": {
