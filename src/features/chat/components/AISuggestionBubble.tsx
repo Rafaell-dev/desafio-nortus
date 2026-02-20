@@ -1,5 +1,6 @@
-import { ChatMessage, FutureAction } from '../types/chat.types';
+import type { ChatMessage, FutureAction } from '../types/chat.types';
 import { Button } from '@/components/ui/button';
+import { useChatStore } from '../stores/useChatStore';
 import Image from 'next/image';
 
 interface AISuggestionProps {
@@ -11,6 +12,8 @@ export function AISuggestionBubble({
   suggestion,
   actions = [],
 }: AISuggestionProps) {
+  const { sendMessage, isLoading } = useChatStore();
+
   return (
     <div className="mr-auto w-full max-w-[80%]">
       <div className="bg-dark-surface-2 rounded-2xl border border-gray-700 p-4">
@@ -35,7 +38,8 @@ export function AISuggestionBubble({
               variant="default"
               size="sm"
               className="bg-blue h-8 rounded-full px-4 text-xs font-medium text-white hover:bg-blue-700"
-              onClick={() => console.log(`Action clicked: ${action.action}`)}
+              onClick={() => sendMessage(action.action)}
+              disabled={isLoading}
             >
               {action.action}
             </Button>

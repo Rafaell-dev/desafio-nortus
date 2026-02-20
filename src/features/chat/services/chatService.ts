@@ -1,4 +1,4 @@
-import { ChatResponse, ChatMessage } from '../types/chat.types';
+import type { ChatResponse, ChatMessage } from '../types/chat.types';
 
 export const chatService = {
   async getChatHistory(): Promise<ChatResponse> {
@@ -9,17 +9,20 @@ export const chatService = {
     return response.json();
   },
 
-  async sendMessage(content: string): Promise<ChatMessage> {
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    return {
-      id: crypto.randomUUID(),
-      content,
-      author: 'Ricardo Leite - Seguro Automotivo',
-      type: 'user_message',
-      timestamp: new Date().toLocaleTimeString([], {
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    };
+  async sendMessage(
+    content: string,
+    history: ChatMessage[],
+  ): Promise<ChatMessage> {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: content, history }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Erro ao enviar mensagem.');
+    }
+
+    return response.json();
   },
 };
