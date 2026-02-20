@@ -1,6 +1,6 @@
 export interface Ticket {
   id: string;
-  ticketId: string;
+  ticketId?: string;
   priority: 'Urgente' | 'Alta' | 'Média' | 'Baixa';
   client: {
     name: string;
