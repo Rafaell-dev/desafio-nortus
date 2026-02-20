@@ -148,15 +148,15 @@ export function ClientMap() {
   return (
     <div className="bg-dark-surface relative w-full overflow-hidden rounded-2xl p-1">
       {/* Filters Header */}
-      <div className="pointer-events-none absolute top-4 left-4 z-10 flex w-[calc(100%-2rem)] justify-between gap-4">
-        <h3 className="pointer-events-auto text-lg font-semibold text-white">
+      <div className="pointer-events-none absolute top-4 left-4 z-10 flex w-[calc(100%-2rem)] flex-col gap-2 sm:flex-row sm:justify-between sm:gap-4">
+        <h3 className="pointer-events-auto text-base font-semibold text-white sm:text-lg">
           {t('dashboard.clientMap')}
         </h3>
-        <div className="pointer-events-auto flex gap-2">
-          <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-4 py-1.5 text-xs text-gray-300 backdrop-blur-sm transition-colors hover:text-white">
+        <div className="pointer-events-auto flex flex-wrap gap-2">
+          <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-3 py-1 text-[10px] text-gray-300 backdrop-blur-sm transition-colors hover:text-white sm:px-4 sm:py-1.5 sm:text-xs">
             {t('dashboard.allLocations')} <ChevronDown size={14} />
           </button>
-          <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-4 py-1.5 text-xs text-gray-300 backdrop-blur-sm transition-colors hover:text-white">
+          <button className="bg-dark-surface/90 flex items-center gap-2 rounded-full border border-gray-700/50 px-3 py-1 text-[10px] text-gray-300 backdrop-blur-sm transition-colors hover:text-white sm:px-4 sm:py-1.5 sm:text-xs">
             {t('dashboard.allTypes')} <ChevronDown size={14} />
           </button>
         </div>

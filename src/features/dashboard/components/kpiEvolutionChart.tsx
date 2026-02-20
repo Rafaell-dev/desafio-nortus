@@ -111,17 +111,17 @@ export function KpiEvolutionChart({ labels, trends }: KpiEvolutionChartProps) {
   ];
 
   return (
-    <div className="bg-dark-surface rounded-2xl p-6">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-white">
+    <div className="bg-dark-surface flex h-full flex-col rounded-2xl p-4 sm:p-6">
+      <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h3 className="text-base font-semibold text-white sm:text-lg">
           {t('dashboard.kpiEvolution')}
         </h3>
-        <div className="flex items-center gap-1 rounded-full border border-gray-700/50 p-1">
+        <div className="flex flex-wrap items-center gap-1 rounded-full border border-gray-700/50 p-1">
           {tabs.map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`cursor-pointer rounded-full px-4 py-1.5 text-xs font-medium transition-colors ${
+              className={`cursor-pointer rounded-full px-3 py-1.5 text-[10px] font-medium transition-colors sm:px-4 sm:text-xs ${
                 activeTab === tab
                   ? 'bg-blue text-white'
                   : 'text-gray-400 hover:text-white'
@@ -132,7 +132,9 @@ export function KpiEvolutionChart({ labels, trends }: KpiEvolutionChartProps) {
           ))}
         </div>
       </div>
-      <Chart options={options} series={series} type="area" height={260} />
+      <div className="min-h-0 flex-1">
+        <Chart options={options} series={series} type="area" height="100%" />
+      </div>
     </div>
   );
 }
