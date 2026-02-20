@@ -139,7 +139,8 @@
     "title": "AI Chat",
     "placeholder": "Type your message...",
     "send": "Send",
-    "today": "TODAY"
+    "today": "TODAY",
+    "typing": "Assistant is typing..."
   },
   "calculator": {
     "title": "Plan Simulator",
