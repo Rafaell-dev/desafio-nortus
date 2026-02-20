@@ -91,7 +91,7 @@ export function ViewTicketModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-dark max-w-2xl">
+      <DialogContent className="bg-dark max-w-[calc(100vw-2rem)] sm:max-w-2xl">
         <DialogHeader>
           <DialogTitle className="text-xl">{t('title')}</DialogTitle>
         </DialogHeader>
@@ -180,7 +180,7 @@ export function ViewTicketModal({
                   type="button"
                   variant="outline"
                   onClick={() => onOpenChange(false)}
-                  className="h-12 w-32 rounded-xl border-gray-600 bg-transparent px-8 text-white hover:bg-gray-800 hover:text-white"
+                  className="h-10 w-28 rounded-xl border-gray-600 bg-transparent px-6 text-sm text-white hover:bg-gray-800 hover:text-white sm:h-12 sm:w-32 sm:px-8 sm:text-base"
                 >
                   {tCommon('close')}
                 </Button>

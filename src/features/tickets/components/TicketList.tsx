@@ -80,12 +80,12 @@ export function TicketList({ tickets, onTicketUpdated }: TicketListProps) {
   );
 
   return (
-    <div className="bg-dark-surface flex min-h-150 flex-col justify-between rounded-2xl p-6 text-white shadow-sm">
+    <div className="bg-dark-surface flex min-h-0 flex-col justify-between rounded-2xl p-4 text-white shadow-sm sm:p-6 lg:min-h-150">
       <div>
-        <h2 className="mb-6 text-lg font-bold">{t('title')}</h2>
+        <h2 className="mb-4 text-base font-bold sm:mb-6 sm:text-lg">{t('title')}</h2>
 
         {/* Controls */}
-        <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="relative w-full lg:w-96">
             <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <input

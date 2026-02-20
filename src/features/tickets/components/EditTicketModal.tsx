@@ -145,7 +145,7 @@ export function EditTicketModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-dark max-w-2xl">
+      <DialogContent className="bg-dark max-w-[calc(100vw-2rem)] sm:max-w-2xl">
         <DialogHeader className="flex flex-row items-center justify-between">
           <DialogTitle className="text-xl">{t('title')}</DialogTitle>
         </DialogHeader>
@@ -314,19 +314,19 @@ export function EditTicketModal({
                 )}
               </div>
 
-              <div className="flex justify-center gap-4 pt-4">
+              <div className="flex justify-center gap-3 pt-4 sm:gap-4">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => onOpenChange(false)}
-                  className="h-12 w-32 rounded-xl border-gray-600 bg-transparent px-8 text-white hover:bg-gray-800 hover:text-white"
+                  className="h-10 w-28 rounded-xl border-gray-600 bg-transparent px-6 text-sm text-white hover:bg-gray-800 hover:text-white sm:h-12 sm:w-32 sm:px-8 sm:text-base"
                 >
                   {tCommon('cancel')}
                 </Button>
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-blue h-12 w-32 rounded-xl px-8 text-white hover:bg-blue-600 disabled:opacity-50"
+                  className="bg-blue h-10 w-28 rounded-xl px-6 text-sm text-white hover:bg-blue-600 disabled:opacity-50 sm:h-12 sm:w-32 sm:px-8 sm:text-base"
                 >
                   {isSubmitting ? t('updating') : tCommon('save')}
                 </Button>
