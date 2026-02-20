@@ -17,10 +17,10 @@ export function ConfigurationPanel() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
-        <div className="mb-4 flex items-center justify-between">
-          <label className="text-sm font-medium text-white">
+        <div className="mb-3 flex items-center justify-between sm:mb-4">
+          <label className="text-xs font-medium text-white sm:text-sm">
             {t('vehicleValue', {
               value: config.vehicleValue.toLocaleString('pt-BR'),
             })}
@@ -34,15 +34,15 @@ export function ConfigurationPanel() {
           onValueChange={handleVehicleValueChange}
           className="py-4"
         />
-        <div className="flex justify-between text-sm text-white">
+        <div className="flex justify-between text-xs text-white sm:text-sm">
           <span>R$ 10.000</span>
           <span>R$ 500.000</span>
         </div>
       </div>
 
       <div>
-        <div className="mb-4 flex items-center justify-between">
-          <label className="text-sm font-medium text-white">
+        <div className="mb-3 flex items-center justify-between sm:mb-4">
+          <label className="text-xs font-medium text-white sm:text-sm">
             {t('clientAge', { age: config.clientAge })}
           </label>
         </div>
@@ -54,14 +54,14 @@ export function ConfigurationPanel() {
           onValueChange={handleAgeChange}
           className="py-4"
         />
-        <div className="flex justify-between text-sm text-white">
+        <div className="flex justify-between text-xs text-white sm:text-sm">
           <span>18 {t('years')}</span>
           <span>90 {t('years')}</span>
         </div>
       </div>
 
       <div>
-        <h3 className="mb-4 text-sm font-medium text-white">
+        <h3 className="mb-3 text-xs font-medium text-white sm:mb-4 sm:text-sm">
           {t('additionalCoverages')}
         </h3>
         <div className="space-y-3">

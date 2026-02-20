@@ -8,15 +8,15 @@ export function IndicatorsPanel() {
   if (!data) return null;
 
   return (
-    <div className="bg-dark-surface rounded-3xl border border-gray-800 p-6">
-      <h3 className="mb-6 text-lg font-bold text-white">{t('indicators')}</h3>
-      <div className="space-y-4">
+    <div className="bg-dark-surface rounded-2xl border border-gray-800 p-4 sm:rounded-3xl sm:p-6">
+      <h3 className="mb-4 text-base font-bold text-white sm:mb-6 sm:text-lg">{t('indicators')}</h3>
+      <div className="space-y-3 sm:space-y-4">
         {data.plansIndicators.map((plan) => {
           const isSelected = selectedPlan === plan.name;
           return (
             <div
               key={plan.name}
-              className={`flex items-center justify-between rounded-xl border p-4 transition-all ${
+              className={`flex items-center justify-between rounded-xl border p-3 transition-all sm:p-4 ${
                 isSelected
                   ? 'bg-blue/10 border-blue'
                   : 'bg-dark-surface-2 border-white/5 opacity-60'
