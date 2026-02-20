@@ -158,7 +158,9 @@
     "conversion": "Conversão",
     "roi": "ROI",
     "perMonth": "Por mês",
-    "recommended": "Recomendado"
+    "recommended": "Recomendado",
+    "vehicleTooltip": "Acréscimo de R$ 0,50 a cada R$ 1.000 acima de R$ 50.000",
+    "ageTooltip": "Acréscimo de R$ 15,00 para cada ano abaixo de 28 anos"
   },
   "common": {
     "save": "Salvar",

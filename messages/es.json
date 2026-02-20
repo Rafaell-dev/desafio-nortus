@@ -158,7 +158,9 @@
     "conversion": "Conversión",
     "roi": "ROI",
     "perMonth": "Por mes",
-    "recommended": "Recomendado"
+    "recommended": "Recomendado",
+    "vehicleTooltip": "Recargo de R$ 0,50 por cada R$ 1.000 por encima de R$ 50.000",
+    "ageTooltip": "Recargo de R$ 15,00 por cada año menor de 28 años"
   },
   "common": {
     "save": "Guardar",

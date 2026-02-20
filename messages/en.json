@@ -158,7 +158,9 @@
     "conversion": "Conversion",
     "roi": "ROI",
     "perMonth": "Per month",
-    "recommended": "Recommended"
+    "recommended": "Recommended",
+    "vehicleTooltip": "+R$ 0.50 surcharge for every R$ 1,000 above R$ 50,000",
+    "ageTooltip": "+R$ 15.00 surcharge for each year below 28 years old"
   },
   "common": {
     "save": "Save",
