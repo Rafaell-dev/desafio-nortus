@@ -40,6 +40,11 @@ export default function TicketsPage() {
     setShowSuccessAlert(true);
   };
 
+  const handleEditSuccess = () => {
+    refetch();
+    setShowSuccessAlert(true);
+  };
+
   if (isLoading) {
     return (
       <div className="bg-dark flex min-h-screen flex-col text-white">
@@ -87,7 +92,7 @@ export default function TicketsPage() {
         <div className="mb-8">
           <TicketStats stats={stats} />
         </div>
-        <TicketList tickets={tickets} />
+        <TicketList tickets={tickets} onTicketUpdated={handleEditSuccess} />
       </div>
 
       {showSuccessAlert && (

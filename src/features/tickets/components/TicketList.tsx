@@ -4,13 +4,18 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { useTicketFilters } from '../hooks/useTicketFilters';
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { EditTicketModal } from './EditTicketModal';
 
 interface TicketListProps {
   tickets: Ticket[];
+  onTicketUpdated?: () => void;
 }
 
-export function TicketList({ tickets }: TicketListProps) {
+export function TicketList({ tickets, onTicketUpdated }: TicketListProps) {
   const t = useTranslations('tickets.list');
+  const [editingTicketId, setEditingTicketId] = useState<string | null>(null);
+  const [editModalOpen, setEditModalOpen] = useState(false);
   const {
     searchTerm,
     setSearchTerm,
@@ -194,6 +199,10 @@ export function TicketList({ tickets }: TicketListProps) {
                       <Button
                         className="flex items-center gap-2"
                         variant="ghost"
+                        onClick={() => {
+                          setEditingTicketId(ticket.id);
+                          setEditModalOpen(true);
+                        }}
                       >
                         <p>{t('edit')}</p>
                         <Image
@@ -266,6 +275,13 @@ export function TicketList({ tickets }: TicketListProps) {
           </div>
         </div>
       )}
+
+      <EditTicketModal
+        ticketId={editingTicketId}
+        open={editModalOpen}
+        onOpenChange={setEditModalOpen}
+        onSuccess={onTicketUpdated}
+      />
     </div>
   );
 }
