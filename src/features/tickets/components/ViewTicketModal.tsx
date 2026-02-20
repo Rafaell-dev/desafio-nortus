@@ -112,7 +112,7 @@ export function ViewTicketModal({
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="bg-dark-surface rounded-2xl p-4">
                   <p className="mb-1 text-xs text-gray-400">{t('id')}</p>
-                  <p className="font-medium text-white">{ticket.id}</p>
+                  <p className="font-medium text-white">{ticket.ticketId}</p>
                 </div>
 
                 <div className="bg-dark-surface rounded-2xl p-4">
