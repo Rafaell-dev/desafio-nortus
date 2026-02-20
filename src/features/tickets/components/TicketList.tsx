@@ -6,6 +6,7 @@ import { useTicketFilters } from '../hooks/useTicketFilters';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import { EditTicketModal } from './EditTicketModal';
+import { ViewTicketModal } from './ViewTicketModal';
 
 interface TicketListProps {
   tickets: Ticket[];
@@ -16,6 +17,8 @@ export function TicketList({ tickets, onTicketUpdated }: TicketListProps) {
   const t = useTranslations('tickets.list');
   const [editingTicketId, setEditingTicketId] = useState<string | null>(null);
   const [editModalOpen, setEditModalOpen] = useState(false);
+  const [viewingTicketId, setViewingTicketId] = useState<string | null>(null);
+  const [viewModalOpen, setViewModalOpen] = useState(false);
   const {
     searchTerm,
     setSearchTerm,
@@ -215,6 +218,10 @@ export function TicketList({ tickets, onTicketUpdated }: TicketListProps) {
                       <Button
                         className="flex items-center gap-1"
                         variant="ghost"
+                        onClick={() => {
+                          setViewingTicketId(ticket.id);
+                          setViewModalOpen(true);
+                        }}
                       >
                         <p>{t('view')}</p>
                         <Image
@@ -277,10 +284,16 @@ export function TicketList({ tickets, onTicketUpdated }: TicketListProps) {
       )}
 
       <EditTicketModal
-        ticketId={editingTicketId}
+        id={editingTicketId}
         open={editModalOpen}
         onOpenChange={setEditModalOpen}
         onSuccess={onTicketUpdated}
+      />
+
+      <ViewTicketModal
+        id={viewingTicketId}
+        open={viewModalOpen}
+        onOpenChange={setViewModalOpen}
       />
     </div>
   );

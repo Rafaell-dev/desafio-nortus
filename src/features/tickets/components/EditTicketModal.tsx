@@ -33,14 +33,14 @@ import {
 import type { Ticket } from '../types/ticket.types';
 
 interface EditTicketModalProps {
-  ticketId: string | null;
+  id: string | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSuccess?: () => void;
 }
 
 export function EditTicketModal({
-  ticketId,
+  id,
   open,
   onOpenChange,
   onSuccess,
@@ -104,8 +104,8 @@ export function EditTicketModal({
   );
 
   useEffect(() => {
-    if (open && ticketId) {
-      loadTicket(ticketId);
+    if (open && id) {
+      loadTicket(id);
     }
 
     if (!open) {
@@ -113,16 +113,16 @@ export function EditTicketModal({
       setError(null);
       setLoadError(null);
     }
-  }, [open, ticketId, loadTicket, reset]);
+  }, [open, id, loadTicket, reset]);
 
   const onSubmit = async (data: EditTicketFormData) => {
-    if (!ticketId) return;
+    if (!id) return;
 
     setIsSubmitting(true);
     setError(null);
 
     try {
-      await ticketService.updateTicket(ticketId, {
+      await ticketService.updateTicket(id, {
         priority: priorityMap[data.priority] as Ticket['priority'],
         client: {
           name: data.clientName,
