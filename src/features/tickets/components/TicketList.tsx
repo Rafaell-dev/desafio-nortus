@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react';
 import { ColumnFiltersState } from '@tanstack/react-table';
 import { EditTicketModal } from './EditTicketModal';
 import { ViewTicketModal } from './ViewTicketModal';
-import { DataTable } from './DataTable';
+import { DataTable } from '@/src/features/common/components/DataTable';
 import { getTicketColumns } from './columns';
 
 interface TicketListProps {
