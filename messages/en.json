@@ -108,6 +108,18 @@
       "subjectRequired": "Subject is required",
       "submitError": "Error creating ticket",
       "saving": "Saving..."
+    },
+    "editModal": {
+      "title": "Edit Ticket",
+      "description": "Update the ticket details below.",
+      "loadingTicket": "Loading ticket data...",
+      "loadError": "Error loading ticket",
+      "statusLabel": "Status",
+      "statusPlaceholder": "Select the ticket status",
+      "submitError": "Error updating ticket",
+      "updating": "Updating...",
+      "successTitle": "Ticket updated successfully!",
+      "successDescription": "The changes have been saved."
     }
   },
   "chat": {

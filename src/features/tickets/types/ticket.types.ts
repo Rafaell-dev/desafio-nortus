@@ -39,3 +39,12 @@ export interface CreateTicketDTO {
   status: Ticket['status'];
   responsible: string;
 }
+
+export interface UpdateTicketDTO {
+  priority?: Ticket['priority'];
+  client?: string;
+  email?: string;
+  subject?: string;
+  status?: Ticket['status'];
+  responsible?: string;
+}

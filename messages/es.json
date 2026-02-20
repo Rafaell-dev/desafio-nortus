@@ -108,6 +108,18 @@
       "subjectRequired": "El asunto es obligatorio",
       "submitError": "Error al crear el ticket",
       "saving": "Guardando..."
+    },
+    "editModal": {
+      "title": "Editar Ticket",
+      "description": "Actualice los datos del ticket a continuación.",
+      "loadingTicket": "Cargando datos del ticket...",
+      "loadError": "Error al cargar el ticket",
+      "statusLabel": "Estado",
+      "statusPlaceholder": "Seleccione el estado del ticket",
+      "submitError": "Error al actualizar el ticket",
+      "updating": "Actualizando...",
+      "successTitle": "¡Ticket actualizado con éxito!",
+      "successDescription": "Los cambios han sido guardados."
     }
   },
   "chat": {
