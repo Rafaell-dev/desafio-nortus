@@ -8,7 +8,7 @@ export default function MainLayout({
   return (
     <div className="flex min-h-screen bg-[#0B1125]">
       <Sidebar />
-      <main className="ml-20 flex-1 transition-all duration-300">
+      <main className="flex-1 transition-all duration-300 lg:ml-20">
         {children}
       </main>
     </div>

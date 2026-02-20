@@ -49,11 +49,11 @@ export default function TicketsPage() {
     return (
       <div className="bg-dark flex min-h-screen flex-col text-white">
         <TitlePage title={t('title')} />
-        <div className="mx-auto w-full max-w-7xl px-8 py-8">
-          <div className="animate-pulse space-y-8">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          <div className="animate-pulse space-y-6 sm:space-y-8">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
               {[...Array(4)].map((_, i) => (
-                <div key={i} className="bg-dark-surface h-32 rounded-2xl p-6" />
+                <div key={i} className="bg-dark-surface h-28 rounded-2xl p-4 sm:h-32 sm:p-6" />
               ))}
             </div>
             <div className="bg-dark-surface h-96 rounded-2xl" />
@@ -82,14 +82,14 @@ export default function TicketsPage() {
         title={t('title')}
         action={
           <NewTicketModal onSuccess={handleSuccess}>
-            <Button className="bg-blue gap-2 rounded-full px-6 text-white hover:bg-blue-700">
+            <Button className="bg-blue gap-2 rounded-full px-4 text-sm text-white hover:bg-blue-700 sm:px-6 sm:text-base">
               <span className="text-xl">+</span> {t('newTicket')}
             </Button>
           </NewTicketModal>
         }
       />
-      <div className="mx-auto w-full max-w-7xl px-8 py-8">
-        <div className="mb-8">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <div className="mb-6 sm:mb-8">
           <TicketStats stats={stats} />
         </div>
         <TicketList tickets={tickets} onTicketUpdated={handleEditSuccess} />

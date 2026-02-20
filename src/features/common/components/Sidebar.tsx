@@ -63,8 +63,8 @@ export function Sidebar() {
   return (
     <aside
       className={cn(
-        'bg-dark-surface shadow-dark fixed top-0 left-0 z-50 flex h-screen flex-col rounded-r-2xl transition-all duration-300 ease-in-out',
-        isExpanded ? 'w-64' : 'w-24'
+        'bg-dark-surface shadow-dark fixed top-0 left-0 z-50 hidden h-screen flex-col rounded-r-2xl transition-all duration-300 ease-in-out lg:flex',
+        isExpanded ? 'w-64' : 'w-24',
       )}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}

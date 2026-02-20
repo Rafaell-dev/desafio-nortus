@@ -89,9 +89,9 @@ export function DataTable<TData, TValue>({
   const to = Math.min((pageIndex + 1) * pageSize, totalRows);
 
   return (
-    <div className="flex min-h-112.5 flex-col justify-between">
+    <div className="flex min-h-0 flex-col justify-between lg:min-h-112.5">
       <div>
-        <Table className="min-w-250 border-collapse text-left">
+        <Table className="min-w-160 border-collapse text-left">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow
@@ -168,7 +168,7 @@ export function DataTable<TData, TValue>({
 
       {/* Pagination */}
       {totalRows > 0 && (
-        <div className="mt-6 flex items-center justify-between border-t border-gray-800 pt-4">
+        <div className="mt-4 flex flex-col items-center gap-3 border-t border-gray-800 pt-4 sm:mt-6 sm:flex-row sm:justify-between">
           <p className="text-xs text-gray-400">
             {paginationLabels?.showing ?? 'Showing'}{' '}
             <span className="font-bold text-white">{from}</span> -{' '}

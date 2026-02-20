@@ -2,6 +2,13 @@ import { useSimulatorStore } from '../hooks/useSimulatorStore';
 import { COVERAGE_PRICES } from '../types/simulator.types';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Slider } from '@/components/ui/slider';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { Info } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
 export function ConfigurationPanel() {
@@ -17,15 +24,29 @@ export function ConfigurationPanel() {
   };
 
   return (
-    <div className="space-y-8">
-      <div>
-        <div className="mb-4 flex items-center justify-between">
-          <label className="text-sm font-medium text-white">
-            {t('vehicleValue', {
-              value: config.vehicleValue.toLocaleString('pt-BR'),
-            })}
-          </label>
-        </div>
+    <TooltipProvider>
+      <div className="space-y-6 sm:space-y-8">
+        <div>
+          <div className="mb-3 flex items-center justify-between sm:mb-4">
+            <div className="flex items-center gap-1.5">
+              <label className="text-xs font-medium text-white sm:text-sm">
+                {t('vehicleValue', {
+                  value: config.vehicleValue.toLocaleString('pt-BR'),
+                })}
+              </label>
+              <Tooltip delayDuration={0}>
+                <TooltipTrigger asChild>
+                  <Info className="h-3.5 w-3.5 shrink-0 cursor-help text-gray-400 transition-colors hover:text-white" />
+                </TooltipTrigger>
+                <TooltipContent
+                  side="top"
+                  className="bg-dark-surface max-w-60 border border-gray-700 text-xs text-gray-200"
+                >
+                  {t('vehicleTooltip')}
+                </TooltipContent>
+              </Tooltip>
+            </div>
+          </div>
         <Slider
           defaultValue={[config.vehicleValue]}
           max={500000}
@@ -34,17 +55,30 @@ export function ConfigurationPanel() {
           onValueChange={handleVehicleValueChange}
           className="py-4"
         />
-        <div className="flex justify-between text-sm text-white">
+        <div className="flex justify-between text-xs text-white sm:text-sm">
           <span>R$ 10.000</span>
           <span>R$ 500.000</span>
         </div>
       </div>
 
       <div>
-        <div className="mb-4 flex items-center justify-between">
-          <label className="text-sm font-medium text-white">
-            {t('clientAge', { age: config.clientAge })}
-          </label>
+        <div className="mb-3 flex items-center justify-between sm:mb-4">
+          <div className="flex items-center gap-1.5">
+            <label className="text-xs font-medium text-white sm:text-sm">
+              {t('clientAge', { age: config.clientAge })}
+            </label>
+            <Tooltip delayDuration={0}>
+              <TooltipTrigger asChild>
+                <Info className="h-3.5 w-3.5 shrink-0 cursor-help text-gray-400 transition-colors hover:text-white" />
+              </TooltipTrigger>
+              <TooltipContent
+                side="top"
+                className="bg-dark-surface max-w-60 border border-gray-700 text-xs text-gray-200"
+              >
+                {t('ageTooltip')}
+              </TooltipContent>
+            </Tooltip>
+          </div>
         </div>
         <Slider
           defaultValue={[config.clientAge]}
@@ -54,14 +88,14 @@ export function ConfigurationPanel() {
           onValueChange={handleAgeChange}
           className="py-4"
         />
-        <div className="flex justify-between text-sm text-white">
+        <div className="flex justify-between text-xs text-white sm:text-sm">
           <span>18 {t('years')}</span>
           <span>90 {t('years')}</span>
         </div>
       </div>
 
       <div>
-        <h3 className="mb-4 text-sm font-medium text-white">
+        <h3 className="mb-3 text-xs font-medium text-white sm:mb-4 sm:text-sm">
           {t('additionalCoverages')}
         </h3>
         <div className="space-y-3">
@@ -143,5 +177,6 @@ export function ConfigurationPanel() {
         </div>
       </div>
     </div>
+    </TooltipProvider>
   );
 }

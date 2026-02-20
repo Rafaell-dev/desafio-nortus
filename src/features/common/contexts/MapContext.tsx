@@ -61,7 +61,7 @@ export function MapProvider({
 
   return (
     <MapContext.Provider value={{ map }}>
-      <div className="relative h-[400px] min-h-[400px] w-full overflow-hidden rounded-xl bg-[#1A253A]">
+      <div className="relative h-62.5 min-h-62.5 w-full overflow-hidden rounded-xl bg-[#1A253A] sm:h-87.5 sm:min-h-87.5 lg:h-100 lg:min-h-100">
         <div ref={mapElement} className="absolute inset-0 h-full w-full" />
         {children}
       </div>

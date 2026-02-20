@@ -15,7 +15,7 @@ export default function DashboardPage() {
   return (
     <div className="bg-dark flex min-h-screen max-w-screen flex-col">
       <TitlePage title={t('dashboard.title')} />
-      <div className="mx-auto w-full max-w-7xl px-8 py-8">
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
         {isLoading && (
           <p className="text-center text-gray-400">{t('common.loading')}</p>
         )}

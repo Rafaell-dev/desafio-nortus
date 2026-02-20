@@ -83,16 +83,18 @@ export function ConversionRateChart({
   ];
 
   return (
-    <div className="bg-dark-surface rounded-2xl p-6">
+    <div className="bg-dark-surface flex h-full flex-col rounded-2xl p-4 sm:p-6">
       <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-white">
+        <h3 className="text-base font-semibold text-white sm:text-lg">
           {t('dashboard.conversionRate')}
         </h3>
         <button className="text-gray-400 transition-colors hover:text-white">
           <ChevronRight className="h-5 w-5" />
         </button>
       </div>
-      <Chart options={options} series={series} type="bar" height={260} />
+      <div className="min-h-0 flex-1">
+        <Chart options={options} series={series} type="bar" height="100%" />
+      </div>
     </div>
   );
 }

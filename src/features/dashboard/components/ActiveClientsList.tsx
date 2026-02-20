@@ -49,10 +49,10 @@ export function ActiveClientsList({ data }: ActiveClientsListProps) {
   );
 
   return (
-    <div className="min-h-155 rounded-2xl bg-[#1A253A] p-6 text-white shadow-sm">
-      <h2 className="mb-6 text-lg font-bold">{t('activeClients')}</h2>
+    <div className="rounded-2xl bg-[#1A253A] p-4 text-white shadow-sm sm:p-6">
+      <h2 className="mb-4 text-base font-bold sm:mb-6 sm:text-lg">{t('activeClients')}</h2>
 
-      <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="relative w-full lg:w-96">
           <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
           <input
